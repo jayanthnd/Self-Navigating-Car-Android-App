@@ -1,0 +1,37 @@
+package com.example.cmpe243.googlemapstest;
+
+import android.bluetooth.BluetoothSocket;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+/**
+ * Created by jayanthnallapothula on 10/23/14.
+ *
+ */
+public class BluetoothSend extends Thread{
+
+
+    public static final String MAINACTIVITY_TAG = "Bluetooth Send";
+
+    BluetoothSend(){}
+
+    public void run(){
+        String stringBuffer = ActivityMain.sendDataText.getText().toString() + "\0";
+        //String stringBuffer = "5Hello World\0";      // Test String
+        //char stringBuffer = 'j';      // Test String
+        byte [] buffer = stringBuffer.getBytes();
+        //byte buffer = (byte)stringBuffer;
+        try{
+
+            BluetoothConnect.mmOutputStream.write(buffer);
+            BluetoothConnect.mmOutputStream.flush();
+            Log.e(MAINACTIVITY_TAG, "Data send successful");
+        } catch (IOException e){
+            Log.e(MAINACTIVITY_TAG, "Error data send");
+        }
+    }
+}
