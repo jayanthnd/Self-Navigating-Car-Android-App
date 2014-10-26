@@ -49,15 +49,19 @@ public class ActivityMain extends FragmentActivity {
             "0960&destination=37.333576,-121.878582&sensor=false&mode=walking";
 
     public static final String MAINACTIVITY_TAG = "MAIN_ACTIVITY";
+    private static final String startMsg = "start";
+    private static final String stopMsg = "stops";
+    private static final String testMsg = "tests";
+
     static final LatLng HOME = new LatLng(37.327388, -121.898719);
     static final LatLng SJSU = new LatLng(37.335656, -121.881201);
+
     private GoogleMap map;
-    BluetoothConnection bluetoothConnection;
+    //BluetoothConnection bluetoothConnection;
     BluetoothSocket mBluetoothSocket =  null;
 
-    Button sendButton;
+    Button sendButton, stopButton, startButton;
     Button connectButton;
-    public static EditText sendDataText;
 
     boolean connected;
 
@@ -67,14 +71,33 @@ public class ActivityMain extends FragmentActivity {
         setContentView(R.layout.activity_activity_main);
 
         sendButton = (Button)findViewById(R.id.sendDataButton);
+        startButton = (Button)findViewById(R.id.startButton);
+        stopButton = (Button)findViewById(R.id.stopButton);
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //startThread();
                 if(connected) {
-                    BluetoothSend sendData = new BluetoothSend();
+                    BluetoothSend sendData = new BluetoothSend(testMsg);
                     sendData.start();
                 }
+            }
+        });
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BluetoothSend sendData = new BluetoothSend(startMsg);
+                sendData.start();
+            }
+        });
+
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BluetoothSend sendData = new BluetoothSend(stopMsg);
+                sendData.start();
             }
         });
 
@@ -93,7 +116,6 @@ public class ActivityMain extends FragmentActivity {
             }
         });
 
-        sendDataText = (EditText)findViewById(R.id.sendDataEditText);
         map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                 .getMap();
         HttpConnection httpConnection = new HttpConnection(map);

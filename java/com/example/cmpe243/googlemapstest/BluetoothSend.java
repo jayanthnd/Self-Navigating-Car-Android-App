@@ -16,15 +16,21 @@ public class BluetoothSend extends Thread{
 
 
     public static final String MAINACTIVITY_TAG = "Bluetooth Send";
+    String sendBuffer;
 
-    BluetoothSend(){}
+    BluetoothSend(String buffer)
+    {
+        sendBuffer = buffer;
+    }
 
     public void run(){
-        String stringBuffer = ActivityMain.sendDataText.getText().toString() + "\0";
+
+        //String stringBuffer = ActivityMain.sendDataText.getText().toString() + "\0";
         //String stringBuffer = "5Hello World\0";      // Test String
         //char stringBuffer = 'j';      // Test String
-        byte [] buffer = stringBuffer.getBytes();
+        //byte [] buffer = stringBuffer.getBytes();
         //byte buffer = (byte)stringBuffer;
+        byte [] buffer = sendBuffer.getBytes();
         try{
 
             BluetoothConnect.mmOutputStream.write(buffer);

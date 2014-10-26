@@ -23,8 +23,8 @@ public class BluetoothReceive {
 
         stopWorker = false;
         readBufferedPosition = 0;
-        readBuffer = new byte[1024];
-        final byte delimiter = '$';
+        readBuffer = new byte[50];
+        final byte delimiter = (byte)'$';
 
 
         workerThread = new Thread(new Runnable() {
@@ -46,8 +46,11 @@ public class BluetoothReceive {
                                 if(b==delimiter){
                                     byte [] encodedBytes = new byte[readBufferedPosition];
                                     System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                                    final String data = new String(encodedBytes, "UTF-8");
-                                    Log.e(MAINACTIVITY_TAG + "Received:", data);
+                                    String data = new String(encodedBytes, "UTF-8");
+
+                                    Log.e(MAINACTIVITY_TAG + "Received:", data + '\n');
+                                    data = null;
+                                    readBufferedPosition = 0;
 
                                 }
                                 else{
