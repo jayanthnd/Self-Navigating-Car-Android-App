@@ -18,8 +18,8 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
 
     public static final String MAIN_TAG = "JSON Parsing";
     static int arrayLength;
-    static LatLng[] latLngs = new LatLng[4];
-    static LatLng [] midPoints = new LatLng[4];
+    static LatLng[] latLngs = new LatLng[10];
+    static LatLng [] midPoints = new LatLng[10];
 
     public static GoogleMap map;
 
@@ -30,7 +30,9 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
 
     @Override
     protected Void doInBackground(String... strings) {
-
+        int i = 0;
+        JSONObject start = null;
+        JSONObject endLocation = null;
         try {
             JSONObject jsonObject = new JSONObject(strings[0]);
             JSONArray jsonArray = jsonObject.getJSONArray("routes");
@@ -41,39 +43,49 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
             arrayLength = jsonArray2.length();
             String logs = jsonArray2.toString();
             Log.v("2nd Log: " + MAIN_TAG, logs);
-            for (int i = 0; i < arrayLength; i++) {
+            Log.v(MAIN_TAG, "Number of steps: " + arrayLength);
+            for (i = 0; i < arrayLength; i++) {
                 JSONObject step = jsonArray2.getJSONObject(i);
-                JSONObject start = step.getJSONObject("start_location");
+                start = step.getJSONObject("start_location");
+                endLocation = step.getJSONObject("end_location");
                 Double startLat = start.getDouble("lat");
                 Double startLng = start.getDouble("lng");
                 latLngs[i] = new LatLng(startLat, startLng);
                 Log.v("Start Location: \n" + "Lat: " + startLat + "\nLng: " + startLng, "");
             }
-            for (int i = 0; i < latLngs.length - 1; i++) {
-                Log.v(MAIN_TAG, "Array Length: " + latLngs.length);
-                double startLat = latLngs[i].latitude;
-                Log.v(MAIN_TAG, "" + startLat);
-                double startLong = latLngs[i].longitude;
-                double endLat = latLngs[i + 1].latitude;
-                double endLong = latLngs[i + 1].longitude;
-                midPoints[i] = new LatLng((startLat + endLat) / 2, (startLong + endLong) / 2);
-                Log.v(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
+            Log.v(MAIN_TAG, "Value of i: " + i);
+//            if(i == arrayLength){
+//                Double endLat = endLocation.getDouble("lat");
+//                Double endLng = endLocation.getDouble("lng");
+//                latLngs[i] = new LatLng(endLat, endLng);
+//                Log.v("End Location: \n" + "Lat: " + endLat + "\nLng: " + endLng, "");
+//            }
+            //Log.v(MAIN_TAG, "Co-ordinates: \n" + latLngs.toString());
+            for (i = 0; i < latLngs.length - 1; i++) {
+//                Log.v(MAIN_TAG, "Array Length: " + latLngs.length);
+//                double startLat = latLngs[i].latitude;
+//                Log.v(MAIN_TAG, "" + startLat);
+//                double startLong = latLngs[i].longitude;
+//                double endLat = latLngs[i + 1].latitude;
+//                double endLong = latLngs[i + 1].longitude;
+//                midPoints[i] = new LatLng((startLat + endLat) / 2, (startLong + endLong) / 2);
+//                Log.v(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
 
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < midPoints.length - 1; i++) {
-            Log.d(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
-        }
+//        for (int i = 0; i < midPoints.length - 1; i++) {
+//            Log.d(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
+//        }
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
 
-        DrawLinesOnMap drawLines = new DrawLinesOnMap();
-        drawLines.drawConnectingMarkers();
+ //       DrawLinesOnMap drawLines = new DrawLinesOnMap();
+ //       drawLines.drawConnectingMarkers();
     }
 }

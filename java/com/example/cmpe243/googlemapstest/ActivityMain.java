@@ -45,8 +45,12 @@ import java.util.UUID;
 
 public class ActivityMain extends FragmentActivity {
 
-    String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.335982,-121.88" +
-            "0960&destination=37.333576,-121.878582&sensor=false&mode=walking";
+    //String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.335982,-121.88" +
+    //        "0960&destination=37.333576,-121.878582&sensor=false&mode=walking";
+    //37.335999,-121.878566
+    String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.335999,-121.878566" +
+            "&destination=37.339550,-121.880697&sensor=false&mode=walking";
+
 
     public static final String MAINACTIVITY_TAG = "MAIN_ACTIVITY";
     private static final String startMsg = "start";

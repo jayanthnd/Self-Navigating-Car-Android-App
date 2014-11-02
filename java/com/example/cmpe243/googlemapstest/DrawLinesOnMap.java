@@ -45,12 +45,13 @@ public class DrawLinesOnMap {
             LatLng[] carPositions = {JsonParsing.latLngs[0], JsonParsing.midPoints[0], JsonParsing.latLngs[1], JsonParsing.midPoints[1],
                     JsonParsing.latLngs[2], JsonParsing.midPoints[2], JsonParsing.latLngs[3]};
 
-
+/*
             for(int i=0; i<carPositions.length; i++) {
                 SimulateCar simulateCarPosition = new SimulateCar(carPositions);
             //SimulateCar simulateCarPosition = new SimulateCar(carPositions, 1);
                 simulateCarPosition.execute(i);
-            }
+
+            }*/
         }
     }
 }

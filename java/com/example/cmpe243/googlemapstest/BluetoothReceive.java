@@ -47,8 +47,11 @@ public class BluetoothReceive {
                                     byte [] encodedBytes = new byte[readBufferedPosition];
                                     System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
                                     String data = new String(encodedBytes, "UTF-8");
-
                                     Log.e(MAINACTIVITY_TAG + "Received:", data + '\n');
+
+                                    IncomingDataChecker dataChecker = new IncomingDataChecker();
+                                    dataChecker.execute(data);
+
                                     data = null;
                                     readBufferedPosition = 0;
 
@@ -67,4 +70,5 @@ public class BluetoothReceive {
         });
         workerThread.start();
     }
+
 }
