@@ -2,8 +2,12 @@ package com.example.cmpe243.googlemapstest;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
+import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.MotionEventCompat;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,6 +28,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,13 +48,14 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
-public class ActivityMain extends FragmentActivity {
+public class ActivityMain extends FragmentActivity{
 
     //String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.335982,-121.88" +
     //        "0960&destination=37.333576,-121.878582&sensor=false&mode=walking";
     //37.335999,-121.878566
-    String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.335999,-121.878566" +
-            "&destination=37.339550,-121.880697&sensor=false&mode=walking";
+    String stringUrl = "http://maps.googleapis.com/maps/api/directions/json?origin=37.336763,-121.880401" +
+            "&destination=37.335665,-121.884980&sensor=false&mode=walking";
+
 
 
     public static final String MAINACTIVITY_TAG = "MAIN_ACTIVITY";
@@ -61,13 +67,20 @@ public class ActivityMain extends FragmentActivity {
     static final LatLng SJSU = new LatLng(37.335656, -121.881201);
 
     private GoogleMap map;
-    //BluetoothConnection bluetoothConnection;
     BluetoothSocket mBluetoothSocket =  null;
 
     Button sendButton, stopButton, startButton;
     Button connectButton;
 
     boolean connected;
+
+    public static String switchActivityString = "Successfully reached this activity!!";
+    public final static String EXTRA_ACTIVITY = "Activity_Main";
+    public final static String s1 = "s1";
+    public final static String s2 = "s2";
+    public final static String s3 = "s3";
+
+    GestureDetector gestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,26 +95,33 @@ public class ActivityMain extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 //startThread();
-                if(connected) {
-                    BluetoothSend sendData = new BluetoothSend(testMsg);
-                    sendData.start();
-                }
+//                if(connected) {
+//                    BluetoothSend sendData = new BluetoothSend(testMsg);
+//                    sendData.start();
+//                }
+                Intent intent = new Intent(ActivityMain.this, SplashScreenActivity.class);
+                intent.putExtra(EXTRA_ACTIVITY, switchActivityString);
+                startActivity(intent);
             }
         });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BluetoothSend sendData = new BluetoothSend(startMsg);
-                sendData.start();
+                if(connected) {
+                    BluetoothSend sendData = new BluetoothSend(startMsg);
+                    sendData.start();
+                }
             }
         });
 
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BluetoothSend sendData = new BluetoothSend(stopMsg);
-                sendData.start();
+                if(connected) {
+                    BluetoothSend sendData = new BluetoothSend(stopMsg);
+                    sendData.start();
+                }
             }
         });
 
@@ -125,8 +145,18 @@ public class ActivityMain extends FragmentActivity {
         HttpConnection httpConnection = new HttpConnection(map);
         httpConnection.execute(stringUrl);
 
+        gestureDetector = new GestureDetector(new SwipeGestureDetector(this, DashboardActivity.class,
+                FreeRunActivity.class));
+
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (gestureDetector.onTouchEvent(event)) {
+            return true;
+        }
+        return super.onTouchEvent(event);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -70,10 +70,10 @@ public class BluetoothConnect extends Thread{
             }
         }
         BluetoothDevice ourDevice = deviceArrayList.get(0);
-        Log.e(MAINACTIVITY_TAG, ourDevice.getAddress().toString());
+        Log.e(MAINACTIVITY_TAG, "Paired Devices: " + ourDevice.getAddress().toString());
         try {
             mBluetoothSocket = ourDevice.createRfcommSocketToServiceRecord(WELL_KNOW_UUID);
-            Log.e(MAINACTIVITY_TAG + "", WELL_KNOW_UUID.toString());
+            Log.e(MAINACTIVITY_TAG , "WELL_KNOW_UUID : " +WELL_KNOW_UUID.toString());
             Method method = ourDevice.getClass().getMethod("createRfcommSocket", new Class[]{int.class});
 
         }catch (NoSuchMethodException e) {

@@ -17,11 +17,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class SimulateCar extends AsyncTask<Integer,Void,Integer> {
 
     public static final String MAIN_TAG = "Simulate Car";
-    LatLng[] latLngs = new LatLng[7];
+    LatLng[] latLngs = new LatLng[9];
     int i = 0;
     int count =0;
     GoogleMap map;
-    public static Marker[] markers = new Marker[7];
+    public static Marker[] markers = new Marker[9];
     Marker m;
     MarkerOptions markerOptions;
 
@@ -54,25 +54,11 @@ public class SimulateCar extends AsyncTask<Integer,Void,Integer> {
 
     @Override
     protected void onPostExecute(Integer index) {
-        Log.d(MAIN_TAG, "Index= " + index);
-        if(index < 3) {
-            markers[index] = map.addMarker(new MarkerOptions().position(latLngs[index]).
-                    icon(BitmapDescriptorFactory.fromResource(R.drawable.car_clipart)));
-
-        }
-        else if(index >= 3 && index < 5){
-            markers[index] = map.addMarker(new MarkerOptions().position(latLngs[index]).icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.car_clipart)).rotation(270));
-        }
-        else{
-            markers[index] = map.addMarker(new MarkerOptions().position(latLngs[index]).icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.car_clipart)).rotation(180));
-        }
+        markers[index] = map.addMarker(new MarkerOptions().position(latLngs[index]).icon(BitmapDescriptorFactory
+                .fromResource(R.drawable.current_dot)).anchor(0.5f,0.5f));
         if(index > 0){
-
             markers[index-1].setVisible(false);
         }
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngs[index], 17));
-
     }
 }

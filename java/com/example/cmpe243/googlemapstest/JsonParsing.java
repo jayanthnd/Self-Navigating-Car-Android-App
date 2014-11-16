@@ -18,8 +18,8 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
 
     public static final String MAIN_TAG = "JSON Parsing";
     static int arrayLength;
-    static LatLng[] latLngs = new LatLng[10];
-    static LatLng [] midPoints = new LatLng[10];
+    static LatLng[] latLngs = new LatLng[6];
+    static LatLng [] midPoints = new LatLng[6];
 
     public static GoogleMap map;
 
@@ -54,38 +54,38 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
                 Log.v("Start Location: \n" + "Lat: " + startLat + "\nLng: " + startLng, "");
             }
             Log.v(MAIN_TAG, "Value of i: " + i);
-//            if(i == arrayLength){
-//                Double endLat = endLocation.getDouble("lat");
-//                Double endLng = endLocation.getDouble("lng");
-//                latLngs[i] = new LatLng(endLat, endLng);
-//                Log.v("End Location: \n" + "Lat: " + endLat + "\nLng: " + endLng, "");
-//            }
-            //Log.v(MAIN_TAG, "Co-ordinates: \n" + latLngs.toString());
-            for (i = 0; i < latLngs.length - 1; i++) {
-//                Log.v(MAIN_TAG, "Array Length: " + latLngs.length);
-//                double startLat = latLngs[i].latitude;
-//                Log.v(MAIN_TAG, "" + startLat);
-//                double startLong = latLngs[i].longitude;
-//                double endLat = latLngs[i + 1].latitude;
-//                double endLong = latLngs[i + 1].longitude;
-//                midPoints[i] = new LatLng((startLat + endLat) / 2, (startLong + endLong) / 2);
-//                Log.v(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
-
+            if(i == arrayLength){
+                Double endLat = endLocation.getDouble("lat");
+                Double endLng = endLocation.getDouble("lng");
+                latLngs[i] = new LatLng(endLat, endLng);
+                Log.v("End Location: \n" + "Lat: " + endLat + "\nLng: " + endLng, "");
             }
+            for(i=0; i< arrayLength; i++)   {
+                Log.v(MAIN_TAG, "Array Length: " + latLngs.length);
+                double startLat = latLngs[i].latitude;
+                Log.v(MAIN_TAG, "" + startLat);
+                double startLong = latLngs[i].longitude;
+                double endLat = latLngs[i + 1].latitude;
+                double endLong = latLngs[i + 1].longitude;
+                midPoints[i] = new LatLng((startLat + endLat) / 2, (startLong + endLong) / 2);
+                Log.v(MAIN_TAG, "MidPoints: " + midPoints[i].latitude + " " + midPoints[i].longitude);
+            }
+            Log.d(MAIN_TAG, "Final Point: " + latLngs[arrayLength].latitude);
+            Log.d(MAIN_TAG, "Endpoint: " + midPoints[arrayLength-1].latitude);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-//        for (int i = 0; i < midPoints.length - 1; i++) {
-//            Log.d(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
-//        }
+        for (i = 0; i < arrayLength; i++) {
+            Log.d(MAIN_TAG, "" + midPoints[i].latitude + " " + midPoints[i].longitude);
+        }
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
 
- //       DrawLinesOnMap drawLines = new DrawLinesOnMap();
- //       drawLines.drawConnectingMarkers();
+        DrawLinesOnMap drawLines = new DrawLinesOnMap();
+        drawLines.drawConnectingMarkers();
     }
 }
