@@ -120,8 +120,9 @@ public class SplashScreenActivity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
 
-            Intent intent = new Intent(SplashScreenActivity.this, ActivityMain.class);
+            Intent intent = new Intent(SplashScreenActivity.this, DashboardActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
         }
     }
 }

@@ -26,7 +26,8 @@ public class IncomingDataChecker extends AsyncTask<String,Void,Void> {
     public String [] sensorToken;
     public String [] gpsToken;
 
-    public static String s1 = null, s2 = null, s3 = null;
+    public static String s1 = null, s2 = null, s3 = null, s4=null;
+    public static int front_left=0, front_center=0, front_right=0, back_sensor=0;
 
     public static int count = 0;
 
@@ -37,8 +38,6 @@ public class IncomingDataChecker extends AsyncTask<String,Void,Void> {
         test,
         unrecognized
     }
-
-
 
     @Override
     protected Void doInBackground(String... data) {
@@ -61,6 +60,8 @@ public class IncomingDataChecker extends AsyncTask<String,Void,Void> {
                 gpsToken = data[0].split(gpsDelimiter);
             }   else {
                 incomingData = recData.unrecognized;
+                //String test = data[0].substring(2, data[0].length());
+                //incomingData = recData.sensor;
             }
         } catch (StringIndexOutOfBoundsException e) {
             e.printStackTrace();
@@ -112,16 +113,34 @@ public class IncomingDataChecker extends AsyncTask<String,Void,Void> {
             case sensor:
 
                 Log.d(MAINACTIVITY_TAG, "data is: " + "Sensor!");
+
                 for(i=0;i<sensorToken.length;i++){
-                    if(sensorToken[i].equals("s1")){
-                        i++;
-                        s1 = sensorToken[i++];
-                        s2 = sensorToken[i++];
-                        s3 = sensorToken[i];
-                        break;
+                    try {
+                        if(sensorToken[i].equals("s1")){
+                            if(sensorToken.length > 1) {
+                                i++;
+                                s1 = sensorToken[i++];
+                                front_left = Integer.parseInt(s1);
+                            }
+                            if(sensorToken.length > 2) {
+                                s2 = sensorToken[i++];
+                                front_center = Integer.parseInt(s2);
+                            }
+                            if(sensorToken.length > 3) {
+                                s3 = sensorToken[i++];
+                                front_right = Integer.parseInt(s3);
+                            }
+                            if(sensorToken.length > 4) {
+                                s4 = sensorToken[i];
+                                back_sensor = Integer.parseInt(s4);
+                            }
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        s1 = s2 = s3 = s4 = null;
                     }
                 }
-                Log.d(MAINACTIVITY_TAG, "Sensor values: s1="+s1+" s2="+s2+" s3="+s3);
+                Log.d(MAINACTIVITY_TAG, "Sensor values: s1="+s1+" s2="+s2+" s3="+s3+"s4="+s4);
 
                 break;
 

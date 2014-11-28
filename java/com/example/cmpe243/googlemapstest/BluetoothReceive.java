@@ -23,7 +23,7 @@ public class BluetoothReceive {
 
         stopWorker = false;
         readBufferedPosition = 0;
-        readBuffer = new byte[50];
+        readBuffer = new byte[500];
         final byte delimiter = (byte)'$';
 
 

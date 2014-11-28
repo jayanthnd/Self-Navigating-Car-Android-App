@@ -14,7 +14,8 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/map_top_margin"/>
 
 
     <Button
@@ -22,9 +23,10 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:background="#00ffff"
-        android:text="Send Data"
+        android:text="Send Dest"
         android:id="@+id/sendDataButton"
         android:layout_marginLeft="10dp"
+        android:visibility="invisible"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/map"
         android:layout_alignEnd="@+id/map"
@@ -35,9 +37,10 @@
         android:layout_height="wrap_content"
         android:text="Connect"
         android:textColor="#000000"
-        android:background="@drawable/gradient"
+        android:background="#00ff00"
         android:id="@+id/connectButton"
         android:layout_above="@+id/map"
+        android:visibility="invisible"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="5dp"/>
@@ -49,9 +52,10 @@
         android:layout_marginLeft="10dp"
         android:textColor="#ffffff"
         android:background="#0000ff"
-        android:id="@+id/startButton"
+        android:id="@+id/startButton1"
         android:layout_alignBottom="@+id/sendDataButton"
-        android:layout_toLeftOf="@+id/sendDataButton"/>
+        android:layout_toLeftOf="@+id/sendDataButton"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="40dp"
@@ -60,21 +64,122 @@
         android:layout_marginLeft="10dp"
         android:textColor="#ffffff"
         android:background="#ff0000"
-        android:id="@+id/stopButton"
+        android:id="@+id/stopButton1"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/connectButton"
         android:layout_toRightOf="@+id/connectButton"
         android:layout_toLeftOf="@+id/startButton"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView"
+        android:layout_width="@dimen/info_layout"
+        android:layout_height="@dimen/info_layout"
+        android:id="@+id/infoImageView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="45dp"
         android:src="@drawable/info_sign"
         android:layout_marginLeft="60dp"/>
+
+    <ImageView
+        android:layout_width="@dimen/info_layout"
+        android:layout_height="@dimen/info_layout"
+        android:id="@+id/homeImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="45dp"
+        android:src="@drawable/home_icon"
+        android:layout_marginLeft="460dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start/Stop"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:id="@+id/startStopButton"
+        android:textSize="@dimen/dashboard_button_textSize"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drive Mode"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:id="@+id/driveModeButton"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:layout_marginLeft="440dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speed Mode"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:id="@+id/speedModeButton"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:layout_marginLeft="230dp"/>
+
+    <Button
+        android:layout_width="@dimen/button_width_2"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:id="@+id/startButton"
+        android:visibility="invisible"
+        android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:layout_marginLeft="@dimen/dashboard_startStop_select_leftMargin_1"/>
+
+    <Button
+        android:layout_width="@dimen/button_width_2"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:id="@+id/stopButton"
+        android:visibility="invisible"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
+        android:layout_marginLeft="@dimen/dashboard_startStop_select_leftMargin_2"/>
+
+    <Button
+        android:layout_width="@dimen/button_width_3"
+        android:layout_height="wrap_content"
+        android:text="Slow"
+        android:textColor="@color/dashboard_button_text_color"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:background="@color/transparent"
+        android:id="@+id/slowSpeedButton"
+        android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dashboard_mode_select_leftMargin_1"/>
+
+    <Button
+        android:layout_width="@dimen/button_width_3"
+        android:layout_height="wrap_content"
+        android:text="Normal"
+        android:textColor="@color/dashboard_button_text_color"
+        android:background="@color/transparent"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:id="@+id/normalSpeedButton"
+        android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dashboard_mode_select_leftMargin_2"/>
+
+    <Button
+        android:layout_width="@dimen/button_width_3"
+        android:layout_height="wrap_content"
+        android:text="Turbo"
+        android:textColor="@color/dashboard_button_text_color"
+        android:textSize="@dimen/dashboard_button_textSize"
+        android:background="@color/transparent"
+        android:id="@+id/turboSpeedButton"
+        android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
+        android:visibility="invisible"
+        android:layout_marginLeft="@dimen/dashboard_mode_select_leftMargin_3"/>
 
 
 </RelativeLayout>

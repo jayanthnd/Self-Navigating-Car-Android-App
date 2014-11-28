@@ -16,9 +16,13 @@ import com.google.android.gms.maps.model.PolylineOptions;
  */
 public class DrawLinesOnMap {
 
+    public static final String MAIN_TAG = "DRAW LINES ACTIVITY";
+
     GoogleMap map;
     int arrayLength;
     static LatLng[] carPositions;
+    static String finalDestination_latitude;
+    static String finalDestination_longitude;
 
     DrawLinesOnMap()
     {
@@ -44,8 +48,23 @@ public class DrawLinesOnMap {
 
             }
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(JsonParsing.latLngs[0], 16));
-            LatLng[] carPositions = {JsonParsing.latLngs[0], JsonParsing.midPoints[0], JsonParsing.latLngs[1], JsonParsing.midPoints[1],
-                    JsonParsing.latLngs[2], JsonParsing.midPoints[2], JsonParsing.latLngs[3], JsonParsing.midPoints[3], JsonParsing.latLngs[4]};
+
+            LatLng[] carPositions = {JsonParsing.latLngs[0],
+                                    JsonParsing.midPoints[0],
+                                    JsonParsing.latLngs[1],
+                                    JsonParsing.midPoints[1],
+                                    JsonParsing.latLngs[2],
+                                    JsonParsing.midPoints[2],
+                                    JsonParsing.latLngs[3],
+                                    JsonParsing.midPoints[3],
+                                    JsonParsing.latLngs[4]};
+
+            Log.d(MAIN_TAG, "Array Length:" + (arrayLength));
+            finalDestination_latitude = Double.toString(JsonParsing.latLngs[arrayLength].latitude);
+            finalDestination_longitude = Double.toString(JsonParsing.latLngs[arrayLength].longitude);
+            Log.d(MAIN_TAG, "Final Destination Latitude: " + finalDestination_latitude);
+            Log.d(MAIN_TAG, "Final Destination Latitude: " + finalDestination_longitude);
+
 
             //Log.d("Draw Class", "Latlngs[4]" + JsonParsing.latLngs[4].latitude);
             //Log.d("Draw Class", "Midpoints[3]" + JsonParsing.midPoints[3].latitude);

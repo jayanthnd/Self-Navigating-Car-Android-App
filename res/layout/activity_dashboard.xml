@@ -83,14 +83,16 @@
         android:layout_height="@dimen/sensor_height_layout_front"
         android:id="@+id/sensorGR1ImageView"
         android:src="@drawable/sensor_gr1"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGC1mageView"
+        android:id="@+id/sensorGC1ImageView"
         android:src="@drawable/sensor_gc1"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
@@ -99,37 +101,42 @@
         android:layout_height="@dimen/sensor_height_layout_front"
         android:id="@+id/sensorGL1ImageView"
         android:src="@drawable/sensor_gl1"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGL2mageView"
+        android:id="@+id/sensorGL2ImageView"
         android:src="@drawable/sensor_gl2"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGC2mageView"
+        android:id="@+id/sensorGC2ImageView"
         android:src="@drawable/sensor_gc2"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGR2mageView"
+        android:id="@+id/sensorGR2ImageView"
         android:src="@drawable/sensor_gr2"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGR3mageView"
+        android:id="@+id/sensorGR3ImageView"
+        android:visibility="invisible"
         android:src="@drawable/sensor_gr3"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
@@ -137,78 +144,87 @@
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGL3mageView"
+        android:id="@+id/sensorGL3ImageView"
         android:src="@drawable/sensor_gl3"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGC3mageView"
+        android:id="@+id/sensorGC3ImageView"
         android:src="@drawable/sensor_gc3"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGC4mageView"
+        android:id="@+id/sensorGC4ImageView"
         android:src="@drawable/sensor_gc4"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGL4mageView"
+        android:id="@+id/sensorGL4ImageView"
         android:src="@drawable/sensor_gl4"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_front"
         android:layout_height="@dimen/sensor_height_layout_front"
-        android:id="@+id/sensorGR4mageView"
+        android:id="@+id/sensorGR4ImageView"
         android:src="@drawable/sensor_gr4"
+        android:visibility="invisible"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_front"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_back"
         android:layout_height="@dimen/sensor_height_layout_back"
-        android:id="@+id/sensorBC1mageView"
+        android:id="@+id/sensorBC1ImageView"
         android:src="@drawable/sensor_bc1"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_back"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/background_animation"
         android:layout_marginBottom="@dimen/sensor_bottomMargin_back"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_back"
         android:layout_height="@dimen/sensor_height_layout_back"
-        android:id="@+id/sensorBC2mageView"
+        android:id="@+id/sensorBC2ImageView"
         android:src="@drawable/sensor_bc2"
         android:layout_above="@+id/carSensor"
+        android:visibility="invisible"
         android:layout_marginLeft="@dimen/sensor_leftMargin_back"
         android:layout_alignBottom="@+id/background_animation"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_back"
         android:layout_height="@dimen/sensor_height_layout_back"
-        android:id="@+id/sensorBC3mageView"
+        android:id="@+id/sensorBC3ImageView"
         android:src="@drawable/sensor_bc3"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_back"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/background_animation"/>
 
     <ImageView
         android:layout_width="@dimen/sensor_width_layout_back"
         android:layout_height="@dimen/sensor_height_layout_back"
-        android:id="@+id/sensorBC4mageView"
+        android:id="@+id/sensorBC4ImageView"
         android:src="@drawable/sensor_bc4"
         android:layout_above="@+id/carSensor"
         android:layout_marginLeft="@dimen/sensor_leftMargin_back"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/background_animation"/>
 
     <Button
@@ -218,6 +234,7 @@
         android:textColor="@color/dashboard_button_text_color"
         android:background="@color/transparent"
         android:id="@+id/startStopButton"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:layout_marginTop="@dimen/dashboard_button_row1_topMargin"/>
 
     <Button
@@ -227,6 +244,7 @@
         android:textColor="@color/dashboard_button_text_color"
         android:background="@color/transparent"
         android:id="@+id/speedModeButton"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:layout_marginTop="@dimen/dashboard_button_row1_topMargin"
         android:layout_marginLeft="230dp"/>
 
@@ -237,8 +255,9 @@
         android:textColor="@color/dashboard_button_text_color"
         android:background="@color/transparent"
         android:id="@+id/driveModeButton"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:layout_marginTop="@dimen/dashboard_button_row1_topMargin"
-        android:layout_marginLeft="450dp"/>
+        android:layout_marginLeft="440dp"/>
 
     <Button
         android:layout_width="@dimen/button_width_2"
@@ -249,6 +268,7 @@
         android:id="@+id/startButton"
         android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
         android:visibility="invisible"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:layout_marginLeft="@dimen/dashboard_startStop_select_leftMargin_1"/>
 
     <Button
@@ -258,6 +278,7 @@
         android:textColor="@color/dashboard_button_text_color"
         android:background="@color/transparent"
         android:id="@+id/stopButton"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
         android:visibility="invisible"
         android:layout_marginLeft="@dimen/dashboard_startStop_select_leftMargin_2"/>
@@ -267,6 +288,7 @@
         android:layout_height="wrap_content"
         android:text="Slow"
         android:textColor="@color/dashboard_button_text_color"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:background="@color/transparent"
         android:id="@+id/slowSpeedButton"
         android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
@@ -279,6 +301,7 @@
         android:text="Normal"
         android:textColor="@color/dashboard_button_text_color"
         android:background="@color/transparent"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:id="@+id/normalSpeedButton"
         android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
         android:visibility="invisible"
@@ -289,6 +312,7 @@
         android:layout_height="wrap_content"
         android:text="Turbo"
         android:textColor="@color/dashboard_button_text_color"
+        android:textSize="@dimen/dashboard_button_textSize"
         android:background="@color/transparent"
         android:id="@+id/turboSpeedButton"
         android:layout_marginTop="@dimen/dashboard_button_row2_topMargin"
@@ -296,13 +320,41 @@
         android:layout_marginLeft="@dimen/dashboard_mode_select_leftMargin_3"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/info_layout"
+        android:layout_height="@dimen/info_layout"
         android:id="@+id/infoImageView"
-        android:layout_alignTop="@+id/sensorBC1mageView"
+        android:layout_alignTop="@+id/sensorBC1ImageView"
         android:layout_alignParentLeft="true"
         android:src="@drawable/info_sign"
         android:layout_marginLeft="60dp"/>
+
+    <ImageView
+        android:layout_width="@dimen/info_layout"
+        android:layout_height="@dimen/info_layout"
+        android:id="@+id/compassImageView"
+        android:layout_alignTop="@+id/sensorBC1ImageView"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/compass_icon"
+        android:layout_marginLeft="460dp"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:id="@+id/compassDirectionImageView"
+        android:layout_below="@+id/dashboardTextView"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/compass_2"
+        android:layout_marginBottom="550dp"/>
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="120dp"
+        android:id="@+id/compassNeedleImageView"
+        android:layout_marginLeft="315dp"
+        android:layout_alignTop="@+id/compassDirectionImageView"
+        android:layout_marginTop="55dp"
+        android:src="@drawable/needle"/>
 
 
 </RelativeLayout>

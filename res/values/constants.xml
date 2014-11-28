@@ -22,7 +22,13 @@
     <dimen name="button_width_3">180dp</dimen>
 
     <color name="transparent">@null</color>
-    <color name="dashboard_button_text_color">#ff0000</color>
+    <color name="dashboard_button_text_color">#ffffff</color>
     <color name="black">#000000</color>
+
+    <dimen name="dashboard_button_textSize">25dp</dimen>
+
+    <dimen name="info_layout">50dp</dimen>
+
+    <dimen name="map_top_margin">40dp</dimen>
 
 </resources>
