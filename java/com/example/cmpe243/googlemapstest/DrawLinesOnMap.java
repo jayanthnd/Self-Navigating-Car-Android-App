@@ -49,16 +49,6 @@ public class DrawLinesOnMap {
             }
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(JsonParsing.latLngs[0], 16));
 
-            LatLng[] carPositions = {JsonParsing.latLngs[0],
-                                    JsonParsing.midPoints[0],
-                                    JsonParsing.latLngs[1],
-                                    JsonParsing.midPoints[1],
-                                    JsonParsing.latLngs[2],
-                                    JsonParsing.midPoints[2],
-                                    JsonParsing.latLngs[3],
-                                    JsonParsing.midPoints[3],
-                                    JsonParsing.latLngs[4]};
-
             Log.d(MAIN_TAG, "Array Length:" + (arrayLength));
             finalDestination_latitude = Double.toString(JsonParsing.latLngs[arrayLength].latitude);
             finalDestination_longitude = Double.toString(JsonParsing.latLngs[arrayLength].longitude);
@@ -70,11 +60,11 @@ public class DrawLinesOnMap {
             //Log.d("Draw Class", "Midpoints[3]" + JsonParsing.midPoints[3].latitude);
             //Log.d("Draw Class", "Lenght: " + carPositions.length);
 
-//            for(int i=0; i<carPositions.length; i++) {
-//                SimulateCar simulateCarPosition = new SimulateCar(carPositions);
-//                simulateCarPosition.execute(i);
-//
-//            }
+            for(int i=0; i<=arrayLength; i++) {
+                SimulateCar simulateCarPosition = new SimulateCar(JsonParsing.latLngs);
+                simulateCarPosition.execute(i);
+
+            }
         }
     }
 }

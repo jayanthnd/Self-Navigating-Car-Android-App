@@ -18,8 +18,8 @@ public class JsonParsing extends AsyncTask<String,Void,Void>{
 
     public static final String MAIN_TAG = "JSON Parsing";
     static int arrayLength;
-    static LatLng[] latLngs = new LatLng[6];
-    static LatLng [] midPoints = new LatLng[6];
+    static LatLng[] latLngs = new LatLng[10];
+    static LatLng [] midPoints = new LatLng[10];
 
     public static GoogleMap map;
 

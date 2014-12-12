@@ -344,16 +344,16 @@
         android:layout_below="@+id/dashboardTextView"
         android:layout_alignParentRight="true"
         android:layout_marginTop="0dp"
-        android:src="@drawable/compass_2"
+        android:src="@drawable/compass_5"
         android:layout_marginBottom="550dp"/>
 
     <ImageView
         android:layout_width="500dp"
         android:layout_height="120dp"
         android:id="@+id/compassNeedleImageView"
-        android:layout_marginLeft="315dp"
+        android:layout_marginLeft="300dp"
         android:layout_alignTop="@+id/compassDirectionImageView"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/needle"/>
 
 

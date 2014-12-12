@@ -21,7 +21,7 @@ public class SimulateCar extends AsyncTask<Integer,Void,Integer> {
     int i = 0;
     int count =0;
     GoogleMap map;
-    public static Marker[] markers = new Marker[9];
+    public static Marker[] markers = new Marker[15];
     Marker m;
     MarkerOptions markerOptions;
 
@@ -55,7 +55,7 @@ public class SimulateCar extends AsyncTask<Integer,Void,Integer> {
     @Override
     protected void onPostExecute(Integer index) {
         markers[index] = map.addMarker(new MarkerOptions().position(latLngs[index]).icon(BitmapDescriptorFactory
-                .fromResource(R.drawable.current_dot)).anchor(0.5f,0.5f));
+                .fromResource(R.drawable.current_location)).anchor(0.5f,0.5f));
         if(index > 0){
             markers[index-1].setVisible(false);
         }
